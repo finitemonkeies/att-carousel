@@ -1,145 +1,156 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ATT Testimonials</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ATT Testimonials</title>
 
-  <style>
+<style>
+  :root{
+    --height: 240px;          /* Increased */
+    --speed: 45s;
+    --card-width: 460px;
+    --gap: 24px;
+    --radius: 16px;
+
+    --bg: #ffffff;
+    --border: #e6e6e6;
+    --text: #111111;
+    --muted: #666666;
+  }
+
+  body{
+    margin: 0;
+    background: transparent;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  .wrap{
+    position: relative;
+    height: var(--height);
+    overflow: hidden;
+    padding: 20px 0;   /* Added vertical breathing room */
+    box-sizing: border-box;
+  }
+
+  .track{
+    display: flex;
+    gap: var(--gap);
+    width: max-content;
+    animation: scroll var(--speed) linear infinite;
+    will-change: transform;
+  }
+
+  .card{
+    width: var(--card-width);
+    max-width: 88vw;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 28px;              /* Increased internal padding */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .quote{
+    margin: 0 0 16px 0;
+    color: var(--text);
+    font-size: 18px;
+    line-height: 1.55;
+    letter-spacing: 0.2px;
+  }
+
+  .name{
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    letter-spacing: 0.3px;
+  }
+
+  .wrap:hover .track{
+    animation-play-state: paused;
+  }
+
+  @keyframes scroll{
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+  }
+
+  /* MOBILE FIX */
+  @media (max-width: 600px){
     :root{
-      --height: 210px;
-      --speed: 45s;
-      --card-width: 460px;
-      --gap: 24px;
-      --radius: 16px;
-
-      /* Light mode */
-      --bg: #ffffff;
-      --border: #e6e6e6;
-      --text: #111111;
-      --muted: #666666;
-    }
-
-    body{
-      margin: 0;
-      background: transparent;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    }
-
-    .wrap{
-      position: relative;
-      height: var(--height);
-      overflow: hidden;
-    }
-
-    .track{
-      display: flex;
-      gap: var(--gap);
-      width: max-content;
-      padding: 12px 0;
-      animation: scroll var(--speed) linear infinite;
-      will-change: transform;
+      --height: 300px;          /* Much taller for wrapping text */
+      --card-width: 360px;
+      --speed: 55s;
     }
 
     .card{
-      width: var(--card-width);
-      max-width: 85vw;
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      padding: 32px 24px;
     }
 
     .quote{
-      margin: 0 0 14px 0;
-      color: var(--text);
-      font-size: 18px;      /* bigger text */
-      line-height: 1.5;
-      letter-spacing: 0.2px;
+      font-size: 19px;
+      line-height: 1.6;
     }
+  }
 
-    .name{
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;      /* slightly bigger */
-      letter-spacing: 0.3px;
-    }
-
-    .wrap:hover .track{
-      animation-play-state: paused;
-    }
-
-    @keyframes scroll{
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    @media (max-width: 600px){
-      :root{
-        --height: 235px;
-        --card-width: 360px;
-        --speed: 55s;
-      }
-    }
-  </style>
+</style>
 </head>
 
 <body>
-  <div class="wrap" aria-label="Among the Trees testimonials">
-    <div class="track" role="list">
+  <div class="wrap">
+    <div class="track">
 
       <!-- SET A -->
-      <div class="card" role="listitem">
+      <div class="card">
         <p class="quote">“ATT feels like the one weekend where I can fully exhale. No expectations — just play, music, and people I actually want to be around.”</p>
         <p class="name">— Melissa</p>
       </div>
 
-      <div class="card" role="listitem">
+      <div class="card">
         <p class="quote">“It’s the perfect mix of chaos and comfort. Swim, dance, wander, laugh… and somehow it all works.”</p>
         <p class="name">— Ryan</p>
       </div>
 
-      <div class="card" role="listitem">
+      <div class="card">
         <p class="quote">“ATT isn’t a festival to me. It’s a reunion that keeps growing — and it still feels like ours.”</p>
         <p class="name">— Sam R.</p>
       </div>
 
-      <div class="card" role="listitem">
+      <div class="card">
         <p class="quote">“I show up stressed and I leave reset. The woods do their thing… and so do the people.”</p>
         <p class="name">— John</p>
       </div>
 
-      <div class="card" role="listitem">
+      <div class="card">
         <p class="quote">“There’s something real about it. No performance. Just friends, new friends, and a little magic after dark.”</p>
         <p class="name">— Jamey</p>
       </div>
 
-      <!-- SET B (duplicate for seamless loop) -->
-      <div class="card" role="listitem" aria-hidden="true">
+      <!-- DUPLICATE SET -->
+      <div class="card">
         <p class="quote">“ATT feels like the one weekend where I can fully exhale. No expectations — just play, music, and people I actually want to be around.”</p>
         <p class="name">— Melissa</p>
       </div>
 
-      <div class="card" role="listitem" aria-hidden="true">
+      <div class="card">
         <p class="quote">“It’s the perfect mix of chaos and comfort. Swim, dance, wander, laugh… and somehow it all works.”</p>
         <p class="name">— Ryan</p>
       </div>
 
-      <div class="card" role="listitem" aria-hidden="true">
+      <div class="card">
         <p class="quote">“ATT isn’t a festival to me. It’s a reunion that keeps growing — and it still feels like ours.”</p>
         <p class="name">— Sam R.</p>
       </div>
 
-      <div class="card" role="listitem" aria-hidden="true">
+      <div class="card">
         <p class="quote">“I show up stressed and I leave reset. The woods do their thing… and so do the people.”</p>
         <p class="name">— John</p>
       </div>
 
-      <div class="card" role="listitem" aria-hidden="true">
+      <div class="card">
         <p class="quote">“There’s something real about it. No performance. Just friends, new friends, and a little magic after dark.”</p>
         <p class="name">— Jamey</p>
       </div>
