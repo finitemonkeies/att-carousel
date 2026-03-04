@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Among the Trees Testimonials</title>
+
+  <style>
+    :root{
+      --height: 190px;
+      --speed: 42s;
+      --card-width: 440px;
+      --gap: 20px;
+      --radius: 18px;
+
+      /* Forest glass vibe */
+      --bg: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.12);
+      --text: rgba(255,255,255,0.92);
+      --muted: rgba(255,255,255,0.65);
+    }
+
+    body{
+      margin:0;
+      background: transparent;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    .wrap{
+      position: relative;
+      height: var(--height);
+      overflow: hidden;
+    }
+
+    .track{
+      display:flex;
+      gap: var(--gap);
+      width: max-content;
+      padding: 10px 0;
+      animation: scroll var(--speed) linear infinite;
+    }
+
+    .card{
+      width: var(--card-width);
+      max-width: 85vw;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-sizing: border-box;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+    }
+
+    .quote{
+      margin:0 0 12px 0;
+      color: var(--text);
+      font-size:16px;
+      line-height:1.4;
+      letter-spacing:0.2px;
+    }
+
+    .name{
+      margin:0;
+      color: var(--muted);
+      font-size:14px;
+      letter-spacing:0.3px;
+    }
+
+    .fade{
+      position:absolute;
+      top:0;
+      bottom:0;
+      width:90px;
+      pointer-events:none;
+      z-index:2;
+    }
+
+    .fade.left{
+      left:0;
+      background:linear-gradient(to right, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    }
+
+    .fade.right{
+      right:0;
+      background:linear-gradient(to left, rgba(0,0,0,0.85), rgba(0,0,0,0));
+    }
+
+    .wrap:hover .track{
+      animation-play-state: paused;
+    }
+
+    @keyframes scroll{
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    @media (max-width:600px){
+      :root{
+        --height: 220px;
+        --card-width: 340px;
+        --speed: 50s;
+      }
+      .fade{ width:60px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <div class="fade left"></div>
+    <div class="fade right"></div>
+
+    <div class="track">
+
+      <!-- SET A -->
+      <div class="card">
+        <p class="quote">“ATT feels like the one weekend where I can fully exhale. No expectations — just play, music, and people I actually want to be around.”</p>
+        <p class="name">— Melissa</p>
+      </div>
+
+      <div class="card">
+        <p class="quote">“It’s the perfect mix of chaos and comfort. Swim, dance, wander, laugh… and somehow it all works.”</p>
+        <p class="name">— Ryan</p>
+      </div>
+
+      <div class="card">
+        <p class="quote">“ATT isn’t a festival to me. It’s a reunion that keeps growing — and it still feels like ours.”</p>
+        <p class="name">— Sam R.</p>
+      </div>
+
+      <div class="card">
+        <p class="quote">“I show up stressed and I leave reset. The woods do their thing… and so do the people.”</p>
+        <p class="name">— John</p>
+      </div>
+
+      <div class="card">
+        <p class="quote">“There’s something real about it. No performance. Just friends, new friends, and a little magic after dark.”</p>
+        <p class="name">— Jamey</p>
+      </div>
+
+      <!-- SET B (duplicate for seamless loop) -->
+      <div class="card">
+        <p class="quote">“ATT feels like the one weekend where I can fully exhale. No expectations — just play, music, and people I actually want to be around.”</p>
+        <p class="name">— Melissa</p>
+      </div>
+
+      <div class="card">
+        <p class="quote">“It’s the perfect mix of chaos and comfort. Swim, dance, wander, laugh… and somehow it all works.”</p>
+        <p class="name">— Ryan</p>
+      </div>
+
+      <div class="card">
+        <p class="quote">“ATT isn’t a festival to me. It’s a reunion that keeps growing — and it still feels like ours.”</p>
+        <p class="name">— Sam R.</p>
+      </div>
+
+      <div class="card">
+        <p class="quote">“I show up stressed and I leave reset. The woods do their thing… and so do the people.”</p>
+        <p class="name">— John</p>
+      </div>
+
+      <div class="card">
+        <p class="quote">“There’s something real about it. No performance. Just friends, new friends, and a little magic after dark.”</p>
+        <p class="name">— Jamey</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
