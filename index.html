@@ -18,19 +18,17 @@
     --muted: #666666;
   }
 
-  body{
+  html, body{
     margin: 0;
+    padding: 0;
     background: transparent;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   }
 
-  /* Auto-adaptive container:
-     - NO fixed height
-     - height expands to whatever the cards need on mobile */
+  /* No fixed height (best we can do inside an iframe) */
   .wrap{
-    position: relative;
     overflow: hidden;
-    padding: 20px 0;           /* breathing room so nothing clips */
+    padding: 16px 0;            /* smaller = less likely to clip */
     box-sizing: border-box;
   }
 
@@ -41,7 +39,6 @@
     width: max-content;
     animation: scroll var(--speed) linear infinite;
     will-change: transform;
-    padding: 0 0;              /* keep clean; wrap handles spacing */
   }
 
   .card{
@@ -50,22 +47,19 @@
     background: var(--bg);
     border: 1px solid var(--border);
     border-radius: var(--radius);
-    padding: 28px;
+    padding: 22px;              /* reduced from 28px */
     box-sizing: border-box;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
-
-    /* ensure card sizes based on content */
     height: auto;
   }
 
   .quote{
-    margin: 0 0 16px 0;
+    margin: 0 0 12px 0;
     color: var(--text);
     font-size: 18px;
-    line-height: 1.55;
+    line-height: 1.5;
     letter-spacing: 0.2px;
   }
 
@@ -85,24 +79,32 @@
     to   { transform: translateX(-50%); }
   }
 
-  /* Mobile tuning: larger legibility + more padding */
+  /* MOBILE: make the card shorter so it fits smaller iframes */
   @media (max-width: 600px){
     :root{
-      --card-width: 360px;
+      --card-width: 340px;
+      --gap: 16px;
       --speed: 55s;
+      --radius: 14px;
     }
 
     .wrap{
-      padding: 24px 0;
+      padding: 10px 0;          /* reduced */
     }
 
     .card{
-      padding: 32px 24px;
+      padding: 18px 18px;       /* reduced a lot */
+      max-width: 90vw;
     }
 
     .quote{
-      font-size: 19px;
-      line-height: 1.6;
+      font-size: 17px;          /* still big, but less tall */
+      line-height: 1.45;
+      margin-bottom: 10px;
+    }
+
+    .name{
+      font-size: 14px;
     }
   }
 </style>
@@ -138,7 +140,7 @@
         <p class="name">— Jamey</p>
       </div>
 
-      <!-- SET B (duplicate for seamless loop) -->
+      <!-- SET B (duplicate) -->
       <div class="card" role="listitem" aria-hidden="true">
         <p class="quote">“ATT feels like the one weekend where I can fully exhale. No expectations — just play, music, and people I actually want to be around.”</p>
         <p class="name">— Melissa</p>
